@@ -15,6 +15,7 @@ import org.xmpp.packet.IQ;
 import org.xmpp.packet.PacketError;
 
 import java.util.*;
+import com.reucon.openfire.plugin.archive.xep0313.*;    // BAO
 
 public abstract class AbstractXepSupport implements UserFeaturesProvider {
 
@@ -30,6 +31,7 @@ public abstract class AbstractXepSupport implements UserFeaturesProvider {
         this.server = server;
         this.element2Handlers = Collections
                 .synchronizedMap(new HashMap<>());
+/*  BAO
         this.iqDispatcher = new AbstractIQHandler(iqDispatcherName, null, iqDispatcherNamespace) {
             public IQ handleIQ(IQ packet) throws UnauthorizedException {
                 if (!MonitoringPlugin.getInstance().isEnabled()) {
@@ -47,6 +49,8 @@ public abstract class AbstractXepSupport implements UserFeaturesProvider {
                 }
             }
         };
+ */
+        this.iqDispatcher = new IQQueryHandler2();
         this.namespace = namespace;
         this.iqHandlers = Collections.emptyList();
         this.muc = muc;

@@ -9,12 +9,12 @@ import org.xmpp.packet.JID;
 /**
  * XEP-0313 IQ Query Handler
  */
-class IQQueryHandler2 extends IQQueryHandler {
+public class IQQueryHandler2 extends IQQueryHandler {   // BAO
 
     private static final Logger Log = LoggerFactory.getLogger( IQQueryHandler2.class);
     private static final String MODULE_NAME = "Message Archive Management Query Handler v2";
 
-    IQQueryHandler2() {
+    public IQQueryHandler2() {                  // BAO
         super(MODULE_NAME, "urn:xmpp:mam:2");
     }
 
